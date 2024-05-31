@@ -1,14 +1,14 @@
-# Импортируем настройки проекта.
 from django.conf import settings
-# Импортируем функцию, позволяющую серверу разработки отдавать файлы.
 from django.conf.urls.static import static
-from django.urls import path
+from django.contrib import admin
+from django.urls import include, path
 
 from . import views
 
 app_name = 'birthday'
 
 urlpatterns = [
+    path('admin/', admin.site.urls),
     path('', views.birthday, name='create'),
     path('list/', views.birthday_list, name='list'),
     path('<int:pk>/edit/', views.birthday, name='edit'),
